@@ -111,24 +111,23 @@ void serial() {
     double elapsed = end - start;
 
     printf("Serial Traffic Simulation\n");
-    printf("-------------------------\n");
-    printf("Vehicles : %d\n", VEHICLES);
-    printf("Lanes : %d\n", LANES);
-    printf("Timestamp : %d\n", TIMESTEPS);
+    // printf("-------------------------\n");
+    // printf("Vehicles : %d\n", VEHICLES);
+    // printf("Lanes : %d\n", LANES);
+    // printf("Timestamp : %d\n", TIMESTEPS);
     printf("Execution Time : %.6f seconds\n", elapsed);
-    printf("Collisions : %d\n", collision);
+    //printf("Collisions : %d\n", collision);
  
-    printf("\nVehicle states (first n):\n");
-    printf("ID\tLane\tPosition\tVelocity\n");
+     // printf("\nVehicle states (first n):\n");
+    // printf("ID\tLane\tPosition\tVelocity\n");
 
-    for (int i = 0; i < PRINT; i++) {
-        printf("%d\t%d\t%u\t\t%u\n",
-               vehicles[i].id,
-               vehicles[i].lane,
-               vehicles[i].position,
-               vehicles[i].velocity);
-    }
-
+    // for (int i = 0; i < PRINT; i++) {
+    //     printf("%d\t%d\t%u\t\t%u\n",
+    //            vehicles[i].id,
+    //            vehicles[i].lane,
+    //            vehicles[i].position,
+    //            vehicles[i].velocity);
+    // }
     return;
 }
 
@@ -188,23 +187,23 @@ void parallel() {
     double elapsed = end - start;
 
     printf("Parallel Traffic Simulation\n");
-    printf("---------------------------\n");
-    printf("Vehicles : %d\n", VEHICLES);
-    printf("Lanes : %d\n", LANES);
-    printf("Timestamp : %d\n", TIMESTEPS);
+    // printf("---------------------------\n");
+    // printf("Vehicles : %d\n", VEHICLES);
+    // printf("Lanes : %d\n", LANES);
+    // printf("Timestamp : %d\n", TIMESTEPS);
     printf("Execution Time : %.6f seconds\n", elapsed);
-    printf("Collisions : %d\n", collisions);
+    //printf("Collisions : %d\n", collisions);
  
-    printf("\nVehicle states (first n):\n");
-    printf("ID\tLane\tPosition\tVelocity\n");
+    // printf("\nVehicle states (first n):\n");
+    // printf("ID\tLane\tPosition\tVelocity\n");
 
-    for (int i = 0; i < PRINT; i++) {
-        printf("%d\t%d\t%u\t\t%u\n",
-               vehicles[i].id,
-               vehicles[i].lane,
-               vehicles[i].position,
-               vehicles[i].velocity);
-    }
+    // for (int i = 0; i < PRINT; i++) {
+    //     printf("%d\t%d\t%u\t\t%u\n",
+    //            vehicles[i].id,
+    //            vehicles[i].lane,
+    //            vehicles[i].position,
+    //            vehicles[i].velocity);
+    // }
 
     return;
 }
@@ -280,25 +279,24 @@ void gpu() {
     double elapsed = end - start;
 
     printf("Fake GPU Traffic Simulation\n");
-    printf("---------------------------\n");
-    printf("Vehicles : %d\n", VEHICLES);
-    printf("Lanes : %d\n", LANES);
-    printf("Timestamp : %d\n", TIMESTEPS);
+    // printf("---------------------------\n");
+    // printf("Vehicles : %d\n", VEHICLES);
+    // printf("Lanes : %d\n", LANES);
+    // printf("Timestamp : %d\n", TIMESTEPS);
     printf("Chunks : %d (size %d)\n", GPU_CHUNKS, CHUNK_SIZE);
     printf("Execution Time : %.6f seconds\n", elapsed);
-    printf("Collisions : %d\n", collisions);
+    //printf("Collisions : %d\n", collisions);
  
-    printf("\nVehicle states (first n):\n");
-    printf("ID\tLane\tPosition\tVelocity\n");
+     // printf("\nVehicle states (first n):\n");
+    // printf("ID\tLane\tPosition\tVelocity\n");
 
-    for (int i = 0; i < PRINT; i++) {
-        printf("%d\t%d\t%u\t\t%u\n",
-               vehicles[i].id,
-               vehicles[i].lane,
-               vehicles[i].position,
-               vehicles[i].velocity);
-    }
-
+    // for (int i = 0; i < PRINT; i++) {
+    //     printf("%d\t%d\t%u\t\t%u\n",
+    //            vehicles[i].id,
+    //            vehicles[i].lane,
+    //            vehicles[i].position,
+    //            vehicles[i].velocity);
+    // }
     return;
 }
 
