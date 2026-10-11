@@ -1,0 +1,10 @@
+source /etc/profile.d/modules.sh
+module load mpi/openmpi-x86_64
+mpiexec --version
+
+mpicc code.c -o a.out
+mpiexec a.out
+
+===========================================
+
+gcc -fopenmp file.c
