@@ -16,6 +16,8 @@
 #define CHUNK_SIZE (VEHICLES / GPU_CHUNKS)
 #define GPU_DELAY 0.00002
 
+#define PRINT 5
+
 struct Vehicle {
     int id;
     unsigned int position;
@@ -115,13 +117,11 @@ void serial() {
     printf("Timestamp : %d\n", TIMESTEPS);
     printf("Execution Time : %.6f seconds\n", elapsed);
     printf("Collisions : %d\n", collision);
-    unsigned short int n = 10;
-    printf("\nEnter number of Vehicle States to Display (n): ");
-    scanf("%d",&n);
+ 
     printf("\nVehicle states (first n):\n");
     printf("ID\tLane\tPosition\tVelocity\n");
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < PRINT; i++) {
         printf("%d\t%d\t%u\t\t%u\n",
                vehicles[i].id,
                vehicles[i].lane,
@@ -194,13 +194,11 @@ void parallel() {
     printf("Timestamp : %d\n", TIMESTEPS);
     printf("Execution Time : %.6f seconds\n", elapsed);
     printf("Collisions : %d\n", collisions);
-    unsigned short int n = 10;
-    printf("\nEnter number of Vehicle States to Display (n): ");
-    scanf("%d",&n);
+ 
     printf("\nVehicle states (first n):\n");
     printf("ID\tLane\tPosition\tVelocity\n");
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < PRINT; i++) {
         printf("%d\t%d\t%u\t\t%u\n",
                vehicles[i].id,
                vehicles[i].lane,
@@ -289,13 +287,11 @@ void gpu() {
     printf("Chunks : %d (size %d)\n", GPU_CHUNKS, CHUNK_SIZE);
     printf("Execution Time : %.6f seconds\n", elapsed);
     printf("Collisions : %d\n", collisions);
-    int n = 10;
-    printf("\nEnter number of Vehicle States to Display (n): ");
-    scanf("%d",&n);
+ 
     printf("\nVehicle states (first n):\n");
     printf("ID\tLane\tPosition\tVelocity\n");
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < PRINT; i++) {
         printf("%d\t%d\t%u\t\t%u\n",
                vehicles[i].id,
                vehicles[i].lane,
@@ -306,10 +302,14 @@ void gpu() {
     return;
 }
 
-int main(){
-    omp_set_num_threads(2);
+void main(){
+    for(int i=1;i<=16;i=i*2){
+    printf("--------------Executing with %d Threads-----------------\n",i);
+    omp_set_num_threads(i);
     serial();
     parallel();
     gpu();
-    return 0;
+    printf("--------------------------------------------------------\n\n");
+}
+    return;
 }
